@@ -1,0 +1,12 @@
+---
+- name: Test Custom Execution Environment
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Check Python Version
+      command: python --version
+      register: python_version
+
+    - name: Display Python Version
+      debug:
+        msg: "Python version is: {{ python_version.stdout }}"
